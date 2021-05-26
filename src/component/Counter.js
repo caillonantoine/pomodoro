@@ -9,6 +9,10 @@ const Counter = () => {
   const [timeLeft, setTimeLeft] = useState(pomodoro.workTime);
 
   useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
+  useEffect(() => {
     setTimeLeft(
       pomodoro.phase == "work"
         ? pomodoro.workTime * 60
@@ -28,8 +32,15 @@ const Counter = () => {
     if (timeLeft == 0) {
       play();
       dispatch(switchPhase());
+      notify();
     }
   }, [timeLeft]);
+
+  const notify = () => {
+    if (Notification.permission === "granted") {
+      let notif = new Notification("Switching phase!");
+    }
+  };
 
   const play = () => {
     var audio = new Audio(alertSound);
@@ -57,6 +68,7 @@ const Counter = () => {
         onClick={() => {
           play();
           dispatch(switchPhase());
+          notify();
         }}
       >
         SWITCH
