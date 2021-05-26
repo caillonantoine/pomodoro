@@ -53,6 +53,14 @@ const Counter = () => {
       >
         RESET
       </button>
+      <button
+        onClick={() => {
+          play();
+          dispatch(switchPhase());
+        }}
+      >
+        SWITCH
+      </button>
     </div>
   );
 };

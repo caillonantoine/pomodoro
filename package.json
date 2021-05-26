@@ -1,7 +1,7 @@
 {
   "name": "pomodoro",
   "version": "0.1.0",
-  "homepage": "https://github.com/caillonantoine/pomodoro",
+  "homepage": "https://caillonantoine.github.io/pomodoro/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
